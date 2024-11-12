@@ -1,0 +1,56 @@
+<style>
+/*menu*/
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color:  #333;
+}
+
+/* ... (código do menu horizontal) ... */
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown li {
+    display: block;
+    padding: 10px 20px;
+}
+
+nav li:hover .dropdown {
+    display: block;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+/*imagem*/
+.imagem-fundo{
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+}
+</style>

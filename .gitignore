@@ -1,0 +1,5 @@
+node_app_testeAlencar/
+node_app/node_modules/
+certbot/logs/
+data/mongodb/
+node_mongo_how8.zip

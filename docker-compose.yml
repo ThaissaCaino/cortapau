@@ -1,0 +1,100 @@
+#version: '3'
+
+#https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose-pt#passo-1-clonando-e-testando-o-aplicativo-node
+services:
+  database_mongo:
+    container_name: mongo_api_hb
+    image: mongo:3
+    ports:
+      - "27015:27017"
+    volumes:
+      - ./data/mongodb:/data/db
+      - ./data/temp:/temp
+    networks:
+      - app-network
+    # environment:
+    #   # provide your credentials here
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=root123
+  nodejs:
+    build:
+      context: .
+      dockerfile: ./nodejs-conf/Dockerfile
+    image: nodejs
+    container_name: nodejs_api_hb
+    restart: unless-stopped
+    volumes:
+      - ./node_app:/home/node/app
+      - ./data/temp:/temp
+    networks:
+      - app-network
+    # deploy:
+    #     resources:
+    #         limits:
+    #           cpus: 0.50
+    #           memory: 512M
+    #         reservations:
+    #           cpus: 0.25
+    #           memory: 128M      
+    ports:
+      - "8085:8080"
+    links:
+      - database_mongo
+    depends_on:
+      - database_mongo
+
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: webserver_api_hb
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./data/temp:/temp
+      - ./nginx-conf:/etc/nginx/conf.d
+      #- certbot-etc-api_njs_nx_mongo:/etc/letsencrypt
+      #- certbot-var-api_njs_nx_mongo:/var/lib/letsencrypt
+      - ./certbot/logs:/var/log/letsencrypt/
+    depends_on:
+      - nodejs
+    networks:
+      - app-network
+
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot_api
+  #   volumes:
+  #     - certbot-etc:/etc/letsencrypt
+  #     - certbot-var:/var/lib/letsencrypt
+  #     - web-root:/var/www/html
+  #     - ./certbot/logs:/var/log/letsencrypt/
+  #   depends_on:
+  #     - webserver
+  #   command: certonly --webroot --webroot-path=/var/www/html --email sammy@example.com --agree-tos --no-eff-email --staging -d example.com  -d www.example.com
+
+
+# volumes:
+#   certbot-etc-api_njs_nx_mongo:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: ./certbot/etc
+#       o: bind
+#   certbot-var-api_njs_nx_mongo:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: ./certbot/var
+#       o: bind
+#   web-root-api_njs_nx_mongo:
+#     driver: local
+#     driver_opts:
+#       type: none
+#       device: ./www
+#       o: bind
+
+networks:
+  app-network:
+    driver: bridge
+

@@ -1,0 +1,52 @@
+
+<table class="forms">
+  <thead>
+    <tr>
+      <th scope="col">Campo</th>
+      <th scope="col">Informações</th>
+
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td>Local</td>
+    <td><%=  chamado.local   %></td>
+  </tr>
+  <tr>
+    <td>Titulo</td>
+    <td><%=  chamado.titulo   %></td>
+  </tr>
+  <tr>
+    <td>Observação</td>
+    <td><%=  chamado.obs   %></td>
+  </tr>
+  <tr>
+    <td>Titulo</td>
+    <td><%=  chamado.titulo   %></td>
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td><%=  chamado.data   %></td>
+  </tr>
+  <tr>
+    <table class="forms">
+
+      <tr><td>Voluntarios</td><td></td> </tr>
+    
+        
+        <% for(var i=0; i<chamado.chamadopessoas.length; i++){%>
+          <tr><td> </td>
+            <% if(chamado.chamadopessoas[i].usuario.length >0 ){ %>
+              <td><%=  chamado.chamadopessoas[i].usuario[0].nome   %></td>
+              <td>Aceito </td>
+            <%}%>
+
+          </tr>
+        <%}%>
+    </table>
+
+  </tr>
+
+</tbody>
+<a href="vincular" class="button">Vincular Usuario</a>
+</table>

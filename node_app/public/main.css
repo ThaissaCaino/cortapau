@@ -1,0 +1,90 @@
+ul {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Organiza os itens em linha */
+    justify-content: space-between; /* Distribui os itens uniformemente */
+}
+  
+header{
+    background-color: rgb(247 247 247);
+    border-bottom: 1px solid #bbbbbb5e;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+/* Inicio Menu Lateral*/
+.sidenav {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+.sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.sidenav li {
+    padding: 10px;
+}
+  
+.sidenav li a {
+    text-decoration: none;
+    color: #333;
+}
+  
+.submenu {
+    display: none;
+}
+  
+.sidenav li:hover .submenu {
+    display: block;
+
+}
+/*Fim Menu*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2; 
+  
+  }
+  
+  .edit {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .delete {
+    color: red;
+    text-decoration: none;
+  }
+
+
+table {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .edit:hover, .delete:hover {
+    text-decoration: underline;
+  }

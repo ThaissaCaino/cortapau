@@ -1,0 +1,48 @@
+/* Tabelas
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+#mySidenav{
+    background-color: rgb(252, 245, 235);
+    border: 2px solid #000000;
+    margin: 10px;
+    text-align:left ;
+}
+tr th{
+    background: #cdcbd4;
+}
+tbody tr {
+    border: 1px solid;
+    text-align: left;
+}
+
+li{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+td a{
+    display: center;
+    justify-content: center;
+    align-items: center;
+    color: #685050;
+}
+
+li a{
+    border: 1px solid #00000000;
+}
+
+.submit-btn{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #472dbb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */

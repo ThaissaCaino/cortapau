@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Profissão</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Instituição</th>
+      <th scope="col">Local</th>
+      <th scope="col">Tipo Usuario</th>
+      <th scope="col">Acções</th>
+
+    </tr>
+  </thead>
+<tbody>
+  <% for(var i=0; i<usuarios.length; i++){%>
+    <tr>
+      <td><%=  usuarios[i].nome   %></td>
+      <td><%=  usuarios[i].email   %></td>
+      <td><%=  usuarios[i].profissao   %></td>
+      <td><%=  usuarios[i].telefone   %></td>
+      <td><%=  usuarios[i].instituicao   %></td>
+      <td><%=  usuarios[i].local   %></td>
+      <td><%=  usuarios[i].tipousuario   %></td>
+      <td>
+        <a type="submit" class="edit" href="./usuarios/<%=usuarios[i]._id%>/show">Show</a>
+        <a type="submit" class="edit" href="./usuarios/<%=usuarios[i]._id%>/edit">Editar</a>
+        <a type="submit" class="delete" href="./usuarios/<%=usuarios[i]._id%>/delete">Excluir</a>
+      </td>
+    </tr>
+  <%}%>
+</tbody>
+
+</table>

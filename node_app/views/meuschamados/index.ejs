@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Local</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Observasão</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i=0; i<chamados.length; i++){%>
+      <tr>
+        <td><%=  chamados[i].chamado[0].local   %></td>
+        <td><%=  chamados[i].chamado[0].tipo   %></td>
+        <td><%=  chamados[i].chamado[0].titulo   %></td>
+        <td><%=  chamados[i].chamado[0].obs   %></td>
+        <td><%=  chamados[i].chamado[0].data   %></td>
+        <td>
+        </td>
+      </tr>
+    <%}%>
+  </tbody>
+
+</table>

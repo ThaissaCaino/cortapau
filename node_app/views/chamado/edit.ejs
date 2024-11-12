@@ -1,0 +1,57 @@
+<form aaction="new" method="post" enctype="multipart/form-data">
+<table  class="forms">
+    <tr>
+      <td>
+        <label for="Local"><b>Localidade do chamado</b></label>
+      </td>
+      <td>
+        <input type="text" placeholder="Local" name="local" value="<%= chamado.local %>" required>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="tipo"><b>Tipo do chamado</b></label>
+      </td>
+      <td>
+        <input type="text" placeholder="Tipo do chamado" name="tipo" value="<%= chamado.tipo %>" required>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="titulo"><b>Titulo do chamado</b></label>
+      </td>
+      <td>
+        <input type="text" placeholder="Titulo" name="titulo" value="<%= chamado.titulo %>"required>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="Obs"><b>Observação</b></label>
+      </td>
+      <td>
+        <input type="text" placeholder="Observação" name="obs" value="<%= chamado.obs%>"required>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="Data"><b>Data</b></label>
+      </td>
+      <td>
+        <input type="text" placeholder="data" name="data" value="<%= chamado.data%>"required>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <button type="submit" class="editabtn">Editar</button>
+      </td>
+      <td>
+        <button type="submit" class="cancelbtn">Cancelar</button>
+      </td>
+    </tr>
+</table> 
+  
+</form>

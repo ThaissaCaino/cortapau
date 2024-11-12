@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Edição dos Usuários</h3>
+  <form aaction="new" method="post" enctype="multipart/form-data">
+    <table  class="forms">
+  
+      <tr>
+        <td>
+          <label for="nome"><b>Nome</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="Nome" name="nome" value="<%= usuario.nome %>" required>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <label for="email"><b>Email</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="Email" name="email" value="<%= usuario.email %>" required>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <label for="profissao"><b>Profissao</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="profissao" name="profissao" value="<%= usuario.profissao %>" required>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <label for="telefone"><b>Telefone</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="telefone" name="telefone" value="<%= usuario.telefone %>" required>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <label for="instituicao"><b>Instituicao</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="instituicao" name="instituicao" value="<%= usuario.instituicao %>" required>
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <label for="local"><b>Local</b></label>
+        </td>
+        <td>
+          <input type="text" placeholder="local" name="local" value="<%= usuario.local %>" required>
+        </td>
+      </tr>
+  
+  
+      <tr>
+        <td>
+          <label for="local"><b>Permissão</b></label>
+        </td>
+        <td>
+          <select name="tipousuario" id="">
+            <option value="atendente">Atendente</option>
+            <option value="admin">Admin</option>
+          </select>
+  
+        </td>
+      </tr>
+  
+      <tr>
+        <td>
+          <button type="submit" class="editabtn">Editar</button>
+        </td>
+        <td>
+          <button type="submit" class="cancelbtn">Cancelar</button>
+        </td>
+      </tr>
+  
+  </table>
+  </form>
+</body>
+</html>
