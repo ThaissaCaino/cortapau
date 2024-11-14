@@ -1,3 +1,22 @@
+<div class="row">
+  <% for(var i=0; i<chamados.length; i++){%>
+    <div class="col-12" style="background-color: blue;">
+      <tr>
+      <td><%=  chamados[i].local   %></td>
+      <td><%=  chamados[i].tipo   %></td>
+      <td><%=  chamados[i].titulo   %></td>
+      <td><%=  chamados[i].obs   %></td>
+      <td><%=  chamados[i].data   %></td>
+      <td><%=  chamados[i].status   %></td>
+      <td><%=  chamados[i].id_solicitante.nome   %></td>
+      <td>
+        <a type="submit" class="edit" href="./<%=chamados[i]._id%>/resolver">Atender</a>
+      </td>
+    </tr>
+    </div>
+  <%}%>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,19 +25,23 @@
       <th scope="col">Titulo</th>
       <th scope="col">Observasão</th>
       <th scope="col">Data</th>
+      <th scope="col">Situação</th>
+      <th scope="col">Solicitante</th>
       <th scope="col">Acções</th>
     </tr>
   </thead>
   <tbody>
     <% for(var i=0; i<chamados.length; i++){%>
       <tr>
-        <td><%=  chamados[i].encaminhado   %></td>
+        <td><%=  chamados[i].local   %></td>
         <td><%=  chamados[i].tipo   %></td>
         <td><%=  chamados[i].titulo   %></td>
         <td><%=  chamados[i].obs   %></td>
         <td><%=  chamados[i].data   %></td>
+        <td><%=  chamados[i].status   %></td>
+        <td><%=  chamados[i].id_solicitante.nome   %></td>
         <td>
-          <a type="submit" class="edit" href="./atender/<%=chamados[i]._id%>/resolver">Atender</a>
+          <a type="submit" class="edit" href="./<%=chamados[i]._id%>/resolver">Atender</a>
         </td>
       </tr>
     <%}%>

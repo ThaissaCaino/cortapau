@@ -20,9 +20,34 @@ dbo.connectToServer(function (err) {
 exports.auth = async (req, res, next) => {
   try {
 
-    reqSenha = "a";
-    reqEmail = "a";
+    // bloco para evitar o login
+    // bloco para evitar o login
+    // esse bloco entra com o usuario Necessito@cotar.um.pau
+    reqSenha = "Necessito@cotar.um.pau";
+    reqEmail = "Necessito@cotar.um.pau";
     const check = await Usuarios.findOne({email: reqEmail});
+
+
+    if(!check){
+        const hash = await bcrypt.hash("Necessito@cotar.um.pau", 8);
+          //       password: hash,
+        const data = {
+        nome: "Necessito@cotar.um.pau",
+        password: hash,
+        email: "Necessito@cotar.um.pau",
+        telefone: "666666",
+        instituicao: "Sempre vivo",
+        profissao: "Lenhador",
+        local: "SSP",
+        tipousuario: 'atendente'
+        }
+        const user = new Usuarios(data);
+        try {
+          const ss = await user.save();
+        } catch (error) {
+          next(error);
+        }
+    }
 
     if(check){
       if(check.password){
@@ -35,6 +60,8 @@ exports.auth = async (req, res, next) => {
         }
       }
     }
+    // FIM do bloco para evitar o login
+    // FIM do bloco para evitar o login
 
     if(req.session.logado){
       res.logado = req.session;

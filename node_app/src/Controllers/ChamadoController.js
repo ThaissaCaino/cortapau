@@ -13,8 +13,15 @@ exports.index = async (req, res, next) => {
   try {
 
     let query = {};
-    const chamados = await Chamados.find(query).lean();
+    const chamados = await Chamados.find(query)
+    .populate( {
+        path: 'id_solicitante',
+        model: 'Usuario',
+        select: 'nome'
+        })
+    .lean();
 
+    //res.status(200).json(chamados);
     res.status(200).render('chamado/index',{ title:"listar chamados", logado: req.session,chamados: chamados});
     //res.render("chamado/index.ejs");
 
@@ -40,6 +47,7 @@ exports.save = async (req, res, next) => {
       local: req.body.local,
       tipo: req.body.tipo,
       obs: req.body.obs,
+      id_solicitante: req.session.usuario_id,
     };
 
     
@@ -54,7 +62,7 @@ exports.save = async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-    res.redirect("../chamado");
+    res.redirect("../chamado/");
 
     //res.status(200).render('chamado/show',{chamado: resultado});
   } 
@@ -104,7 +112,7 @@ exports.update = async (req, res, next) => {
       console.log(updated);
       console.log('c');
     }
-    res.redirect("../../chamado");
+    res.redirect("../../chamado/");
 
     //res.status(200).json(updated);
   } catch (error) {

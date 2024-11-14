@@ -13,8 +13,15 @@ exports.index = async (req, res, next) => {
   try {
 
     let query = {};
-    const chamados = await Chamados.find(query).lean();
+    const chamados = await Chamados.find(query)
+    .populate( {
+      path: 'id_solicitante',
+      model: 'Usuario',
+      select: 'nome'
+      })
+    .lean();
 
+    //res.status(200).json(chamados);    
     res.status(200).render('atenderchamado/index',{ title:"listar chamados", logado: req.session,chamados: chamados});
     //res.render("chamado/index.ejs");
 
@@ -63,7 +70,7 @@ exports.resolverrupdate = async (req, res, next) => {
       console.log(updated);
       console.log('c');
     }
-    res.redirect("../../atender");
+    res.redirect("../../atender/");
 
     //res.status(200).json(updated);
   } catch (error) {
