@@ -1,7 +1,18 @@
 <div class="row">
   <% for(var i=0; i<chamados.length; i++){%>
     <div class="col-12" style="background-color: blue;">
-      <tr>
+    </div>
+    <div class="col-12" style="background-color: blue;">
+    </div>
+    <div class="col-12" style="background-color: blue;">
+    </div>
+    <div class="col-12" style="background-color: blue;">
+    </div>
+    <div class="col-12" style="background-color: blue;">
+    </div>
+    <div class="col-12" style="background-color: blue;">
+    </div>
+    <tr>
       <td><%=  chamados[i].local   %></td>
       <td><%=  chamados[i].tipo   %></td>
       <td><%=  chamados[i].titulo   %></td>
@@ -13,7 +24,7 @@
         <a type="submit" class="edit" href="./<%=chamados[i]._id%>/resolver">Atender</a>
       </td>
     </tr>
-    </div>
+  </div>
   <%}%>
 </div>
 
