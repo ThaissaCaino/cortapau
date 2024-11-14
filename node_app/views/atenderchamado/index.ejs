@@ -12,15 +12,13 @@
   <tbody>
     <% for(var i=0; i<chamados.length; i++){%>
       <tr>
-        <td><%=  chamados[i].local   %></td>
+        <td><%=  chamados[i].encaminhado   %></td>
         <td><%=  chamados[i].tipo   %></td>
         <td><%=  chamados[i].titulo   %></td>
         <td><%=  chamados[i].obs   %></td>
         <td><%=  chamados[i].data   %></td>
         <td>
-          <a type="submit" class="edit" href="chamado/<%=chamados[i]._id%>/show">Show</a>
-          <a type="submit" class="edit" href="chamado/<%=chamados[i]._id%>/edit">Editar</a>
-          <a type="submit" class="delete" href="chamado/<%=chamados[i]._id%>/delete">Excluir</a>
+          <a type="submit" class="edit" href="./atender/<%=chamados[i]._id%>/resolver">Atender</a>
         </td>
       </tr>
     <%}%>

@@ -26,7 +26,8 @@ exports.index = async (req, res, next) => {
 
 exports.new = async (req, res, next) => {
   try {
-    res.status(200).render('chamado/new',{ title:"Novo Chamado", logado: req.session});
+    const chamado =  new Chamados();
+    res.status(200).render('chamado/new',{ chamado: chamado, title:"Novo Chamado", logado: req.session});
   } catch (error) {
     console.log(error);
     next(error);
@@ -38,9 +39,7 @@ exports.save = async (req, res, next) => {
     let chamad = {
       local: req.body.local,
       tipo: req.body.tipo,
-      titulo: req.body.titulo,
       obs: req.body.obs,
-      data: req.body.data,
     };
 
     
@@ -138,7 +137,7 @@ console.log(chamado)
     //console.log(chamado);
     //res.status(200).json(resultado);
 
-    res.status(200).render('chamado/show',{chamado: chamado,  logado: req.session});
+    res.status(200).render('chamado/show',{ title:"Novo Chamado", chamado: chamado,  logado: req.session});
   } catch (error) {
     next(error);
   }

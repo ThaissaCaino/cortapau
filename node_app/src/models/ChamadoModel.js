@@ -17,7 +17,7 @@ const ChamadoSchema = new Schema({
   },
   titulo: {
     type: String,
-    required: true,
+    required: false,
   },
   obs: {
     type: String,
@@ -29,8 +29,30 @@ const ChamadoSchema = new Schema({
   },
   data: {
     type: String,
-    required: true,
+    required: false,
   },
+
+
+
+  obsatendimento: {
+    type: String,
+    required: false,
+  },
+  statusatendimento: {
+    type: String,
+    required: false,
+  },
+  dataatendimento: {
+    type: String,
+    required: false,
+  },
+  encaminhado: {
+    type: String,
+    required: false,
+  },
+
+   
+
   id_solicitante: {
     type: mongoose.Types.ObjectId,
     ref: "Usuario",

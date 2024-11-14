@@ -1,53 +1,35 @@
  <form aaction="new" method="post" esnctype="multipart/form-data">
-  <table class="forms">
-    <tr>
-      <td >
-        <label for="Local"><b>Localidade do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Local" name="local" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="tipo"><b>Tipo do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Tipo do chamado" name="tipo" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="titulo"><b>Titulo do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Titulo" name="titulo" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
+  <div class="row">
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+        <label for="tipo"><b>Tipo Problema:</b></label>
+        <input type="text" placeholder="" name="tipo" value="<%= chamado.tipo %>" required>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+        <label for="Data"><b>Endereço</b></label>
+        <textarea name="local" rows="5" cols="40"><%= chamado.local%></textarea>
+      </div>      
+    </div>      
+     
+    <div class="mt-04 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
         <label for="Obs"><b>Observação</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Observação" name="obs" required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="data"><b>Data</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="data" name="data"required>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button type="submit" class="criarbtn" href="new">Criar </button>
-      </td>
-      <td>
-        <button type="submit" class="cancelbtn">Cancelar</button>
-      </td>
-    </tr>
+        <textarea name="obs" rows="10" cols="40"><%= chamado.obs%></textarea>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+          <button type="submit" class="editabtn">Criar</button>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+          <button type="submit" class="cancelbtn">Cancelar</button>
+      </div>      
+    </div>      
+  </div>      
     
   </table>
 </form>

@@ -1,57 +1,66 @@
 <form aaction="new" method="post" enctype="multipart/form-data">
-<table  class="forms">
-    <tr>
-      <td>
-        <label for="Local"><b>Localidade do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Local" name="local" value="<%= chamado.local %>" required>
-      </td>
-    </tr>
+  <div class="row">
 
-    <tr>
-      <td>
-        <label for="tipo"><b>Tipo do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Tipo do chamado" name="tipo" value="<%= chamado.tipo %>" required>
-      </td>
-    </tr>
 
-    <tr>
-      <td>
-        <label for="titulo"><b>Titulo do chamado</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Titulo" name="titulo" value="<%= chamado.titulo %>"required>
-      </td>
-    </tr>
+    <div class="mt-0 g-col-12 d-flex justify-content-center" style="background-color: rgb(178, 220, 248);" >
+      <div class="form-group">
+        <label for="tipo"><b>Tipo Problema::</b></label>
+        <%= chamado.tipo %>
+      </div>      
+    </div>  
 
-    <tr>
-      <td>
+
+    <div class="mt-0 g-col-12 d-flex justify-content-center" style="background-color: rgb(178, 220, 248);">
+      <div class="form-group">
+        <label for="tipo"><b>Endereço:</b></label>
+        <%= chamado.local %>
+      </div>      
+    </div>  
+
+    <div class="mt-0 g-col-12 d-flex justify-content-center" style="background-color: rgb(178, 220, 248);">
+      <div class="form-group">
+        <label for="tipo"><b>Observação::</b></label>
+        <%= chamado.obs %>
+      </div>      
+    </div>  
+
+
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+        <label for="tipo"><b>Encaminhado para:</b></label>
+        <input type="text" placeholder="" name="encaminhado" value="<%= chamado.encaminhado %>" required>
+      </div>      
+    </div>  
+    
+    
+    <div class="mt-0 col-12 d-flex justify-content-center">
+      <div class="form-group">
+        <label for="titulo"><b>Status Atendimento</b></label>
+        <input type="text" placeholder="Titulo" name="statusatendimento" value="<%= chamado.statusatendimento %>"required>
+      </div>      
+    </div>      
+    <div class="mt-04 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
         <label for="Obs"><b>Observação</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="Observação" name="obs" value="<%= chamado.obs%>"required>
-      </td>
-    </tr>
-    <tr>
-      <td>
+        <textarea name="textarea" name="obsatendimento" rows="10" cols="40"><%= chamado.obsatendimento%></textarea>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
         <label for="Data"><b>Data</b></label>
-      </td>
-      <td>
-        <input type="text" placeholder="data" name="data" value="<%= chamado.data%>"required>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <button type="submit" class="editabtn">Editar</button>
-      </td>
-      <td>
-        <button type="submit" class="cancelbtn">Cancelar</button>
-      </td>
-    </tr>
-</table> 
-  
+        <input type="text" placeholder="data" name="dataatendimento" value="<%= chamado.dataatendimento%>"required>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+          <button type="submit" class="editabtn">Atualizar</button>
+      </div>      
+    </div>      
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+          <button type="submit" class="cancelbtn">Cancelar</button>
+      </div>      
+    </div>      
+  </div>      
+        
 </form>

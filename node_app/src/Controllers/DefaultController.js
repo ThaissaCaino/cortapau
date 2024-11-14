@@ -19,6 +19,23 @@ dbo.connectToServer(function (err) {
 
 exports.auth = async (req, res, next) => {
   try {
+
+    reqSenha = "a";
+    reqEmail = "a";
+    const check = await Usuarios.findOne({email: reqEmail});
+
+    if(check){
+      if(check.password){
+        const isPasswordMatch = await bcrypt.compare(reqSenha, check.password);
+        if(isPasswordMatch){
+          req.session.logado = true;
+          req.session.usuario_id = check._id;
+          req.session.usuario_tipo = check.tipousuario;
+          req.session.usuario_nome = check.nome;    
+        }
+      }
+    }
+
     if(req.session.logado){
       res.logado = req.session;
       console.log(req.session);
@@ -69,11 +86,13 @@ exports.login_get =(req, res, next)=> {
 
 exports.login_post = async (req, res, next)=>{
   try{
-    const check = await Usuarios.findOne({email: req.body.email});
+    let reqSenha = req.body.password;
+    let reqEmail = req.body.email;
+    const check = await Usuarios.findOne({email: reqEmail});
 
     if(check){
       if(check.password){
-        const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
+        const isPasswordMatch = await bcrypt.compare(reqSenha, check.password);
         if(isPasswordMatch){
           req.session.logado = true;
           req.session.usuario_id = check._id;

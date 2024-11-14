@@ -24,32 +24,34 @@ exports.index = async (req, res, next) => {
 };
 
 
-exports.edit = async (req, res, next) => {
+exports.resolver = async (req, res, next) => {
   try {
     let query = {_id:ObjectID(req.params.id)};
     const chamado = await Chamados.findOne(query).lean();
     console.log(chamado)
 
-    res.status(200).render('atenderchamado/edit',{chamado: chamado, logado: req.session});
+    res.status(200).render('atenderchamado/edit',{ title:"listar chamados",chamado: chamado, logado: req.session});
   } catch (error) {
     next(error);
   }
 };
 
-exports.update = async (req, res, next) => {
+exports.resolverrupdate = async (req, res, next) => {
 
   try {
     const id_chamado = req.params.id;
     const chamado = await Chamados.findOne({ _id: id_chamado}); 
     console.log('a');
     console.log(chamado);
+
+
+
     if (chamado) {
       let chamadodata = {
-        local: req.body.local,
-        tipo: req.body.tipo,
-        titulo: req.body.titulo,
-        obs: req.body.obs,
-        data: req.body.data,
+        obsatendimento: req.body.obsatendimento,
+        statusatendimento: req.body.statusatendimento,
+        dataatendimento: req.body.dataatendimento,
+        encaminhado: req.body.encaminhado,
       };
       console.log('b');
       
