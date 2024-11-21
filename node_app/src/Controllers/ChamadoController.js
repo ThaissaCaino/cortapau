@@ -34,7 +34,8 @@ exports.index = async (req, res, next) => {
 exports.new = async (req, res, next) => {
   try {
     const chamado =  new Chamados();
-    res.status(200).render('chamado/new',{ chamado: chamado, title:"Novo Chamado", logado: req.session});
+    res.status(200).render('chamado/new',
+      { chamado: chamado, title:"Novo Chamado", logado: req.session});
   } catch (error) {
     console.log(error);
     next(error);
@@ -81,7 +82,8 @@ exports.edit = async (req, res, next) => {
     const chamado = await Chamados.findOne(query).lean();
     console.log(chamado)
 
-    res.status(200).render('chamado/edit',{chamado: chamado, logado: req.session});
+    res.status(200).render('chamado/edit',
+      {chamado: chamado, logado: req.session , title:"Editar Chamado"});
   } catch (error) {
     next(error);
   }

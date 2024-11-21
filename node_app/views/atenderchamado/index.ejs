@@ -1,61 +1,49 @@
-<div class="row">
-  <% for(var i=0; i<chamados.length; i++){%>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <div class="col-12" style="background-color: blue;">
-    </div>
-    <tr>
-      <td><%=  chamados[i].local   %></td>
-      <td><%=  chamados[i].tipo   %></td>
-      <td><%=  chamados[i].titulo   %></td>
-      <td><%=  chamados[i].obs   %></td>
-      <td><%=  chamados[i].data   %></td>
-      <td><%=  chamados[i].status   %></td>
-      <td><%=  chamados[i].id_solicitante.nome   %></td>
-      <td>
+<style> 
+.list_atender {
+  border: black 1px solid;
+  //background-color: blueviolet;
+} 
+</style>
+
+<% for(var i=0; i<chamados.length; i++){%>
+    <% cc = "background-color: #7bf47b;" %>
+    <% if (chamados[i].statusatendimento == "Resolvido com sucesso") { %>
+      <% cc = "background-color: #86abff;" %>
+    <% } %>
+    <% if (chamados[i].statusatendimento == "Nao Atendido") { %>
+      <% cc = "background-color: #f48f8f;" %>
+    <% } %>
+
+    <div class="row list_atender" style="<%= cc%>">
+      <div class="col-6" >
+        <%=  chamados[i].tipo   %>
+      </div>
+       
+      <div class="col-6" >
+        <%=  chamados[i].statusatendimento   %>
+      </div>
+      <div class="col-6" >
+        <%=  chamados[i].data   %>
+      </div>
+      <div class="col-6" >
+        <%=  chamados[i].dataatendimento   %>
+      </div>
+
+      <div class="col-12" >
+        <%=  chamados[i].titulo   %>
+      </div>
+      <div class="col-12" >
+        <%=  chamados[i].obs   %>
+      </div>
+      <div class="col-12" >
+        <%=  chamados[i].local   %>
+      </div>
+
+      <div class="col-8" >
+      </div>
+      <div class="col-4" >
         <a type="submit" class="edit" href="./<%=chamados[i]._id%>/resolver">Atender</a>
-      </td>
-    </tr>
-  </div>
-  <%}%>
-</div>
+      </div>
+    </div>
+<%}%>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Local</th>
-      <th scope="col">Tipo</th>
-      <th scope="col">Titulo</th>
-      <th scope="col">Observasão</th>
-      <th scope="col">Data</th>
-      <th scope="col">Situação</th>
-      <th scope="col">Solicitante</th>
-      <th scope="col">Acções</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for(var i=0; i<chamados.length; i++){%>
-      <tr>
-        <td><%=  chamados[i].local   %></td>
-        <td><%=  chamados[i].tipo   %></td>
-        <td><%=  chamados[i].titulo   %></td>
-        <td><%=  chamados[i].obs   %></td>
-        <td><%=  chamados[i].data   %></td>
-        <td><%=  chamados[i].status   %></td>
-        <td><%=  chamados[i].id_solicitante.nome   %></td>
-        <td>
-          <a type="submit" class="edit" href="./<%=chamados[i]._id%>/resolver">Atender</a>
-        </td>
-      </tr>
-    <%}%>
-  </tbody>
-
-</table>
