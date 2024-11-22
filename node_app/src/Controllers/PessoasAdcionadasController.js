@@ -1,5 +1,8 @@
 const dbo = require("../db/conn");
 
+
+
+
 const Compras = require("../models/CompraModel");
 const Fornecedores = require("../models/FornecedorModel");
 const {Produtos}  = require('../models/ProdutoModel');
