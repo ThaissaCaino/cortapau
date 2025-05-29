@@ -6,12 +6,16 @@ Trabalho de Hands on Work 9 realizado no curso de Análise e Desenvolvimento de 
 Para executar o projeto o computador precisará ter o Docker compose instalado.
 
 
-Start containers:
+Intanciando aplicaçõa
 ```sh
 docker-compose up -d
 ```
-or, if you intend to use [huey](https://github.com/coleifer/huey) (batch processing)
+Ou
 
 ```sh
-docker-compose -f docker-compose-consumer.yml up -d
+docker-compose -f docker-compose-consumer.yml up
 ```
+
+Depois de inicializado estará disponivel em :
+
+- http://localhost:80
