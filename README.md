@@ -3,8 +3,15 @@ Trabalho de Hands on Work 9 realizado no curso de Análise e Desenvolvimento de 
 
 
 
-Para executar o projeto o computador precisará ter o Docker compose instalado.
+Install [docker compose](https://docs.docker.com/compose/install/).
 
+
+Clonar o repositório:
+
+```
+git clone https://github.com/ThaissaCaino/cortapau.git
+cd cortapau
+```
 
 Intanciando aplicaçõa
 ```sh
