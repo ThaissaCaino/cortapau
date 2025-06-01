@@ -36,7 +36,7 @@ app.set('view engine', 'ejs');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
-app.use("/node", router);
+app.use("/cortapau", router);
 
 require("./src/Routes/index")(router); // <--- basta adicionar essa linha
 

@@ -70,7 +70,7 @@ exports.auth = async (req, res, next) => {
     }
     else{
       //next();
-      res.redirect("/node/login");
+      res.redirect("/cortapau/login");
 
     }
 
@@ -181,7 +181,7 @@ exports.singup_post = async (req, res, next)=>{
       }
 
     }
-    res.redirect('/node');
+    res.redirect('/cortapau/login');
   } catch (error) {
     next(error);
   }

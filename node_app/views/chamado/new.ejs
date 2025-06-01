@@ -5,11 +5,22 @@
         <label for="tipo"><b>Tipo Problema:</b></label>
         <input type="text" placeholder="" name="tipo" value="<%= chamado.tipo %>" required>
       </div>      
-    </div>      
+    </div>    
+
     <div class="mt-0 g-col-12 d-flex justify-content-center">
       <div class="form-group">
         <label for="Data"><b>Endereço</b></label>
         <textarea name="local" rows="5" cols="40"><%= chamado.local%></textarea>
+      </div>      
+    </div>    
+
+    <div class="mt-0 g-col-12 d-flex justify-content-center">
+      <div class="form-group">
+        <label for="Data"><b>Fotos</b></label>
+
+        <img src="/images/1.jpg" style="width: 103px;"/>
+        <img src="/images/2.jpg" style="width: 103px;"/>
+        <input type="file">
       </div>      
     </div>      
      
